@@ -1,0 +1,22 @@
+{
+    "recettes": [
+        {
+            "id": 0,
+            "nom": "Bouillon",
+            "ingredients": [
+                "Tomates",
+                "ails",
+                "persils"
+            ]
+        },
+        {
+            "id": 1,
+            "nom": "Boeuf",
+            "ingredients": [
+                "Viande",
+                "sel",
+                "poivre"
+            ]
+        }
+    ]
+}

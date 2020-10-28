@@ -23,7 +23,26 @@ def final_space(file1, file2):
         result.write(data.read().replace(" ", "   "))
 
 
-def check_number(n):
+# def convert_grades() -> None:
+#     pass
+
+
+def grades(note_file, target_file):
+    correspondances = {20: "F", 40: "D", 50: "C", 70: "B", 85: "A"}
+    results = []
+    with open(note_file, 'r') as note_data, open(target_file, 'w') as target:
+        for line in note_data.readlines():
+            note = float(line)
+            for grade in correspondances.keys():
+                if grade == 85 and note > grade:
+                    results.append("A*\n")
+                if note <= grade:
+                    results.append(correspondances[grade] + "\n")
+                    break
+        target.writelines(results)
+
+
+def check_number(n) -> bool:
     try:
         int(n)
         return True
@@ -33,14 +52,7 @@ def check_number(n):
 
 def increasing_numbers():
     with open('exemple.txt', 'r') as f1:
-        data = f1.read()
-        words = data.split()
-        numbers = []
-        for word in words:
-            if check_number(word):
-                numbers.append(int(word))
-        sorted_numbers = sorted(numbers)
-    return sorted_numbers
+        return sorted([int(word) for word in f1.read().split() if word.isdigit()])
 
 
 def read_half(name_file1: str, name_file2: str):
@@ -55,4 +67,4 @@ def read_half(name_file1: str, name_file2: str):
 if __name__ == '__main__':
     # TODO: Appelez vos fonctions ici
 
-    read_half('texte.txt', 'half.txt')
+    print(increasing_numbers())
